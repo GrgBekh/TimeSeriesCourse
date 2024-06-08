@@ -41,7 +41,7 @@ class PricesToTimeSeriesFormat:
         prices_multidim.index.name = 'wm_yr_wk'  # Set the index name
         prices_multidim.sort_index(inplace=True)
 
-        return prices_multidim
+        return prices_multidim.ffill().dropna()
 
 class CalendarToTimeSeriesFormat:
 
